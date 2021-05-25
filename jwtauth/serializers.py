@@ -1,5 +1,23 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from .models import Profile, Emergency
+
+class EmergencySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Emergency
+        fields = ('id', 'url', 'first_name', 'last_name', 'phone_number', 'email', 'profile')
+
+class EmergencyProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Emergency
+        fields = ('id', 'url', 'first_name', 'last_name', 'phone_number', 'email')
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    emergency = EmergencyProfileSerializer(many=True)
+    class Meta:
+        model = Profile
+        fields = ('id','url', 'user', 'first_name', 'last_name', 'gender', 'zip_code', 'emergency')
 
 User = get_user_model()
 
@@ -34,4 +52,6 @@ class UserCreateSerializer(serializers.ModelSerializer):
         user = User(username=username, email=email)
         user.set_password(password)
         user.save()
+        # profile = Profile(user=user)
+        # profile.save()
         return user
