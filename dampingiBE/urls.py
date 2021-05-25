@@ -20,7 +20,7 @@ from rest_framework import routers
 from jwtauth import views as jwtAuthViews
 
 router = routers.DefaultRouter()
-router.register('profile', jwtAuthViews.ProfileView)
+router.register('profile', jwtAuthViews.ProfileView, basename='Profile')
 router.register('emergency', jwtAuthViews.EmergencyView)
 
 urlpatterns = [

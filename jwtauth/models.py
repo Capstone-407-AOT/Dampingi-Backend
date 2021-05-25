@@ -21,6 +21,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=120, blank=False)
     gender = models.CharField(max_length=1, choices=GENDER)
     zip_code = models.CharField(max_length=5, validators=[MinLengthValidator(5)], blank=False)
+    
 
     def __unicode__(self):
         return u'Profile of user: {0}'.format(self.user.email)
