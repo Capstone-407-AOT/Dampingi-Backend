@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from rest_framework import permissions, viewsets,  views
+from rest_framework.views import APIView
 from rest_framework import response, decorators, permissions, status
+from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import UserCreateSerializer, ProfileSerializer, EmergencySerializer
 from .models import Profile, Emergency
@@ -14,6 +16,14 @@ class ProfileView(viewsets.ModelViewSet):
 class EmergencyView(viewsets.ModelViewSet):
     queryset = Emergency.objects.all()
     serializer_class = EmergencySerializer
+
+class UserProfileView(APIView):
+    def get(self, request, *args, **kwargs):
+        print(self)
+        print(request)
+        user = request.user
+        profile_serializer = ProfileSerializer(user.profile)
+        return Response(profile_serializer.data)
 
 @decorators.api_view(["POST"])
 @decorators.permission_classes([permissions.AllowAny])

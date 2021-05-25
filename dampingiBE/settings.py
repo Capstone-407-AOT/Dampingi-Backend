@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'rest_framework',
     'jwtauth',
+    'forum',
+    'reversion'
 ]
 
 MIDDLEWARE = [
