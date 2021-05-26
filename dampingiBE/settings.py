@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'jwtauth',
     'forum',
-    'reversion'
+    'reversion',
+    'report'
 ]
 
 MIDDLEWARE = [
@@ -85,7 +86,7 @@ DATABASES = {
         'USER': 'root', 
         'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '3306',   #my port is 3306
+        'PORT': '3306',
     }
 }
 
