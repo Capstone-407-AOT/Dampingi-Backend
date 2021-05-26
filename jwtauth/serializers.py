@@ -17,7 +17,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     emergency = EmergencyProfileSerializer(many=True)
     class Meta:
         model = Profile
-        fields = ('id','url', 'user', 'first_name', 'last_name', 'gender', 'zip_code', 'emergency')
+        fields = ('id', 'user', 'first_name', 'last_name', 'gender', 'zip_code', 'emergency')
 
 User = get_user_model()
 
