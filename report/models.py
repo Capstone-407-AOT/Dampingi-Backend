@@ -14,8 +14,8 @@ class Report(models.Model):
     title = models.CharField(max_length=120, blank=False)
     descriprtion = models.TextField(blank=False)
     date = models.DateTimeField(null=True, blank=True)
-    cur_lat = models.CharField(max_length=120, blank=False)
-    cur_lng = models.CharField(max_length=120, blank=False)
+    lat = models.CharField(max_length=120, blank=False)
+    lng = models.CharField(max_length=120, blank=False)
 
     def __str__(self):
         return "Emergency Contact" + self.title
