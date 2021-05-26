@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'jwtauth',
     'forum',
     'reversion',
-    'report'
+    'report',
+    'panic'
 ]
 
 MIDDLEWARE = [
