@@ -12,7 +12,7 @@ class Report(models.Model):
     profile = models.ForeignKey(Profile, related_name='reports', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, related_name='reports', on_delete=models.CASCADE)
     title = models.CharField(max_length=120, blank=False)
-    descriprtion = models.TextField(blank=False)
+    description = models.TextField(blank=False)
     date = models.DateTimeField(null=True, blank=True)
     lat = models.CharField(max_length=120, blank=False)
     lng = models.CharField(max_length=120, blank=False)
