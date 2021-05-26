@@ -18,10 +18,12 @@ from django.urls import *
 from rest_framework_simplejwt import views as jwt_views
 from rest_framework import routers
 from jwtauth import views as jwtAuthViews
+from report import views as reportViews
 
 router = routers.DefaultRouter()
 router.register('profile', jwtAuthViews.ProfileView, basename='Profile')
 router.register('emergency', jwtAuthViews.EmergencyView)
+router.register('report', reportViews.ReportView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
