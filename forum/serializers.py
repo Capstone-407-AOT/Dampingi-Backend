@@ -28,18 +28,19 @@ class PostRepliesSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Post
-        fields = ('url','category', 'title', 'body', 'replies_to', 'created_at', 'created_by')
+        fields = ('url','id','category', 'title', 'body', 'reply_to', 'created_at', 'created_by')
 
 
 class PostSerializer(serializers.ModelSerializer):
     """
     PostSerializer
     """
-    created_by = serializers.IntegerField(source='created_by', read_only=True)
+    # created_by = serializers.IntegerField(source='created_by', read_only=True)
     replies = serializers.SerializerMethodField('get_replies')
 
     class Meta:
         model = Post
+        fields = '__all__'
 
     def get_replies(self, obj):
         serializer = PostRepliesSerializer(Post.objects.filter(reply_to=obj), many=True,

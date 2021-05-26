@@ -5,6 +5,7 @@ from django.conf import settings
 from django.db import models
 from django.utils.encoding import force_bytes
 from django.utils.translation import ugettext_lazy as _
+from jwtauth.models import Profile
 
 
 # initiate logger
@@ -27,12 +28,12 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='posts', on_delete=models.CASCADE)
     title = models.CharField(_('Title'), max_length=200)
     body = models.TextField(_('Body'), )
     reply_to = models.ForeignKey('self', blank=True, null=True, related_name='child', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(getattr(settings, 'AUTH_USER_MODEL'), related_name='posts', on_delete=models.CASCADE)
+    created_by = models.ForeignKey(Profile, related_name='posts', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -45,11 +46,10 @@ class Announcement(models.Model):
     title = models.CharField(_('Title'), max_length=200)
     body = models.TextField(_('Body'), )
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(getattr(settings, 'AUTH_USER_MODEL'), related_name='announcers', editable=False, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(Profile, related_name='announcers', on_delete=models.CASCADE)
     announce_from = models.DateTimeField(_('Announce from'), null=True, blank=True)
     announce_to = models.DateTimeField(_('Announce to'), null=True, blank=True)
-    mark_as_read = models.ManyToManyField(getattr(settings, 'AUTH_USER_MODEL'), related_name='announcements',
-                                          editable=False)
+    mark_as_read = models.ManyToManyField(Profile, related_name='announcements')
 
     class Meta:
         ordering = ['-created_at', ]
