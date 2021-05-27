@@ -21,6 +21,8 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=120, blank=False)
     gender = models.CharField(max_length=1, choices=GENDER)
     zip_code = models.CharField(max_length=5, validators=[MinLengthValidator(5)], blank=False)
+    nik = models.CharField(max_length=120, blank=True)
+    address = models.CharField(max_length=5000, blank=True)
     
 
     def __unicode__(self):
@@ -41,7 +43,7 @@ class Emergency(models.Model):
     profile = models.ForeignKey(Profile, related_name='emergency', on_delete=models.CASCADE)
 
     def __str__(self):
-        return "Emergency Contact" + self.first_name
+        return "Emergency Contact " + self.first_name
 
 
 def create_profile(sender, instance, created, **kwargs):

@@ -18,6 +18,20 @@ class ProfileView(viewsets.ModelViewSet):
         if user.is_authenticated:
             return Profile.objects.filter(user=user)
         raise PermissionDenied()
+    def put(self, request, *args, **kwargs):
+        user = self.request.user
+        first_name = request.data['first_name']
+        last_name = request.data['last_name']
+        gender = request.data['gender']
+        zip_code = request.data['zip_code']
+        nik = request.data['nik']
+        address = request.data['address']
+        
+        Profile.objects.filter(id = user.profile.id).update(first_name = first_name,
+        last_name = last_name, gender = gender, zip_code = zip_code, nik = nik, address = address)
+
+
+        return response.Response(status.HTTP_201_CREATED)
 
 class EmergencyView(viewsets.ModelViewSet):
     queryset = Emergency.objects.all()

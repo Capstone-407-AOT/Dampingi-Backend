@@ -76,6 +76,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dampingiBE.wsgi.application'
 
+# Twilio Service
+TWILIO_ACCOUNT_SID = "AC720103fb6d052f258c4437484a10775c"
+TWILIO_AUTH_TOKEN = "00cc4bb4e2249560b4aeadc27c3c82a9"
+
+# Email Service
+#DataFlair
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dampingibe@gmail.com'
+EMAIL_HOST_PASSWORD = 'FZ(9e[(KEL`6w",='
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -116,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'
 
 USE_I18N = True
 
