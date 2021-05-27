@@ -19,11 +19,13 @@ from rest_framework_simplejwt import views as jwt_views
 from rest_framework import routers
 from jwtauth import views as jwtAuthViews
 from report import views as reportViews
+from panic import views as panicViews
 
 router = routers.DefaultRouter()
 router.register('profile', jwtAuthViews.ProfileView, basename='Profile')
 router.register('emergency', jwtAuthViews.EmergencyView)
 router.register('report', reportViews.ReportView)
+router.register('panic', panicViews.PanicView, basename='Panic')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

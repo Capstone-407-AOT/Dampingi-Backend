@@ -3,7 +3,7 @@ import uuid
 from jwtauth.models import Profile
 # Create your models here.
 
-class PanicNormal(models.Model):
+class Panic(models.Model):
     id = models.UUIDField( 
          primary_key = True, 
          default = uuid.uuid4, 
@@ -11,3 +11,5 @@ class PanicNormal(models.Model):
     profile = models.ForeignKey(Profile, related_name='panic_normal', on_delete=models.CASCADE)
     cur_lat = models.CharField(max_length=120, blank=False)
     cur_lng = models.CharField(max_length=120, blank=False)
+    date = models.DateTimeField(null=True, blank=True)
+
