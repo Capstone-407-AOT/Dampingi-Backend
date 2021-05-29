@@ -95,10 +95,10 @@ EMAIL_HOST_PASSWORD = 'FZ(9e[(KEL`6w",='
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dampingi-db',
+        'NAME': '1_dampingi_db',
         'USER': 'root', 
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'PASSWORD': 'FZ(9e[(KEL`6w",=',
+        'HOST': '34.101.223.186',
         'PORT': '3306',
     }
 }
