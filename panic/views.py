@@ -15,8 +15,9 @@ class PanicView(viewsets.ModelViewSet):
     def create(self,request, *args, **kwargs):
         user = self.request.user
         emergency = Emergency.objects.filter(profile = user.profile.id)
-        print(user.profile)
-        print(emergency)
+        
+        panic_save = Panic(profile = user.profile.id,cur_lat=request.data['cur_lat'], cur_lng=request.data['cur_lng'])
+        panic_save.save()
         subject = 'Test Server'
         message = 'Dampingi Backend Test Serve : Tolong hubungi sayaa'
         for ec in emergency:
