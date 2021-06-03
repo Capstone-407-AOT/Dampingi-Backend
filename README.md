@@ -27,9 +27,13 @@ The REST API to the dampingi app is described below. (wait for image to load)
 # NOTES
 
 You can try our API by using this user : 
-username = sandi123
-password = sandi123
 
-dont forget to attach "/" in the end of the url
+*username* = sandi123
+
+*password* = sandi123
+
+*dont forget to attach "/" in the end of the url*
+
 example : http://35.240.180.156/api/v1/token/ >> work
-          http://35.240.180.156/api/v1/token >> didn't work
+
+          http://35.240.180.156/api/v1/token >> won't work
