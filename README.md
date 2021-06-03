@@ -34,7 +34,7 @@ The REST API to the dampingi app is described below. (wait for image to load)
 
 or u can register your own id to this link http://35.240.180.156/api/v1/jwtauth/register/
 
-dont forget to update ur profile and add emergency contact to use our feature.
+dont forget to update ur profile and add emergency contact to use our feature. Be sure to always put ur authorization token to call the API(except Register and login)
 
 
 ## dont forget to attach "/" in the end of the url
