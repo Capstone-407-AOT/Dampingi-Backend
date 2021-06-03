@@ -20,6 +20,6 @@ Here is instruction to run dampingi-backend in local
 
 The REST API to the dampingi app is described below. (wait for image to load)
 
-![alt text](https://drive.google.com/file/d/1oHUCIBecpgLjKRD2LGzD-OeWq_J4ymEX/view?usp=sharing)
+![alt text](https://user-images.githubusercontent.com/43607241/120653690-238fa400-c4ab-11eb-9619-f97dafc5674b.jpg)
 
-![alt text](https://drive.google.com/file/d/16_RujtbH7T-zs13a91Q_T77u_3YOfPN9/view?usp=sharing)
+![alt text](https://user-images.githubusercontent.com/43607241/120653705-268a9480-c4ab-11eb-803c-7b9b120285f3.jpg)
