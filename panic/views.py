@@ -16,12 +16,12 @@ class PanicView(viewsets.ModelViewSet):
         user = self.request.user
         emergency = Emergency.objects.filter(profile = user.profile.id)
         
-        panic_save = Panic(profile = user.profile.id,cur_lat=request.data['cur_lat'], cur_lng=request.data['cur_lng'])
+        panic_save = Panic(profile = user.profile,cur_lat=request.data['cur_lat'], cur_lng=request.data['cur_lng'])
         panic_save.save()
-        subject = 'Test Server'
-        message = 'Dampingi Backend Test Serve : Tolong hubungi sayaa'
+        subject = '{fn_user} {ln_user} Mungkin Butuh Bantuanmu !!!'.format(fn_user=user.profile.first_name, ln_user=user.profile.last_name)
         for ec in emergency:
             recepient = ec.email
+            message = 'Halo {fn_emergency} kami dari Dampingi ingin memberitahu bahwa anda adalah Emergency Contact dari {fn_user} dan beliau telah menekan tombol "Panic". Tolong hubungi {fn_user} mungkin saja dia butuh bantuanmu!! /n Untuk info lebih lanjut bisa hubungi dampingibe@gmail.com'.format(fn_emergency=ec.first_name, fn_user=user.profile.first_name)
             send_mail(subject, message, settings.EMAIL_HOST_USER, [recepient])
 
         #Twilio Send SMS
