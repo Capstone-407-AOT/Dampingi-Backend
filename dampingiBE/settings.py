@@ -25,7 +25,7 @@ SECRET_KEY = '!-0owkteyf4m8(yxpf7po@t@z_!ijfe9cuvm&nh%!y_$8r@&jk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'forum',
     'reversion',
     'report',
-    'panic'
+    'panic',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', #Enable CORS
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'dampingiBE.urls'
 
@@ -95,10 +99,10 @@ EMAIL_HOST_PASSWORD = 'FZ(9e[(KEL`6w",='
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dampingi-db',
+        'NAME': '1_dampingi_db',
         'USER': 'root', 
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'PASSWORD': 'FZ(9e[(KEL`6w",=',
+        'HOST': '34.101.223.186',
         'PORT': '3306',
     }
 }
